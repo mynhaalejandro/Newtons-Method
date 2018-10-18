@@ -1,5 +1,5 @@
 # Newtons-Method
 A visualization of Newton's Method.
 
-#Author
+# Author
 https://github.com/mattzh72
