@@ -11,10 +11,10 @@
 
     <!-- Custom CSS -->
     <link href="CSS/newton.css" rel="stylesheet">
-    
+
     <!-- JS Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.5/math.min.js" type="text/javascript"></script>
-    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript" ></script>   
+    <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" type="text/javascript"></script>
     <script src="JS/preload.js" type="text/javascript"></script>
     <script src="JS/newton.js" type="text/javascript"></script>
@@ -22,7 +22,7 @@
     <script src="JS/grapher.js" type="text/javascript"></script>
     <script src="JS/chart.js" type="text/javascript"></script>
     <script src="JS/output.js" type="text/javascript"></script>
-    
+
     <title>Newton's Method</title>
 </head>
 
@@ -30,40 +30,43 @@
     <div class="input-params">
         <div class="input-display">
             <p1>\(f(x) =\)</p1>
-            <input class="f" type="text" id="f" value="0.05x^3-x+ 1" onkeypress="return setVars(event)"/>
-        </div>
-        
-        <div class="input-display">
-            <p1>\(x_0 =\)</p1>
-            <input class="init" type="text" id="init" value="3" onkeypress="return setVars(event)"/>
+            <input class="f" type="text" id="f" value="x^6-x-1" onkeypress="return setVars(event)"/>
         </div>
 
         <div class="input-display">
-            <p1 class="input-format">\(accuracy:\)</p1>
+            <p1>\(x_0 =\)</p1>
+            <input class="init" type="text" id="init" value="2" onkeypress="return setVars(event)"/>
+        </div>
+
+        <div class="input-display">
+            <p1 class="input-format">\(epsilon:\)</p1>
             <input type="text" class="TOLER" id="TOLER" value="0.1" onkeypress="return setVars(event)"/>
         </div>
     </div>
 
-    <table class = "content-container">
-        <tr>
-            <td>
-                <div class="chart-container" id="chart-container">
-                    <canvas id="newtonChart" width="200" height="200"></canvas>
-                </div>    
-            </td>
-            
-            <td>
-                <div class="output-box" id="output-box">        
-                    <table class="output" id="output">
-                        <tr></tr>
-                    </table>
-                </div> 
-            </td>
-        </tr>
-    </table>
-    
-    <footer style="margin-top: 40px;"></footer>
-    
+    <div class="content-container" id="content-container">
+        <div class="chart-container" id="chart-container">
+            <canvas id="newtonChart" width="200" height="200"></canvas>
+        </div>
+
+        <div class="output-box" id="output-box">
+            <table class="output" id="output">
+                <tr>
+                    <th>n</th>
+                    <th>x<sub>n</sub></th>
+                    <th>f(x<sub>n</sub>)</th>
+                    <th>f'(x<sub>n</sub>)</th>
+                    <th>x</th>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+
+             </table>
+         </div>
+    </div>
+
+    <!-- <footer style="margin-top: 40px;"></footer> -->
 </body>
-    
+
 </html>

@@ -7,8 +7,8 @@ a {
     text-decoration: none;
 }
 
-.input-params {
-    top: 50%;
+.input-params{
+    top: 5%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -17,6 +17,18 @@ a {
     text-align: center;
     font-size: 30px;
 }
+
+.content-container {
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
 
 input[type=text] {
     border: 0;
@@ -33,30 +45,58 @@ input[type=text] {
 input[type=text]:hover {
     outline:none;
     background-color: #FEE5AC;
-}   
+}
 
 input[type=text]:focus {
     outline:none;
     background-color: rgba(254, 229, 172, 0.4);
-}  
+}
+.chart-container{
+    /* margin-top: -400px; */
+    width: 50%;
+    height: 50%;
+}
+/* .content-container {
+         text-align: center;
+} */
+#content-container div {
+    /* margin-top: -800px; */
+    display: inline-block;
+	  /* width: 500px;
+	  min-height: 50px; */
+	  /* background-color: #eee; */
+	  height: auto;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
 
-.chart-container {
-    margin-left: 20px;
-    width: 70%;
-    height: 70%;
+th {
+    text-align: right;
+    padding-left: 80px;
+}
+td {
+    padding-left: 80px;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
 }
 
 @media only screen and (max-width: 1178px) {
     .input-params {
         font-size: 20px;
     }
-    
+
     input[type=text] {
         font-size: 20px;
         width: 30px;
     }
 
-    
+
     body {
         font-size: 15px;
     }
@@ -71,19 +111,19 @@ input[type=text]:focus {
     .input-params {
         font-size: 15px;
     }
-    
+
     input[type=text] {
         font-size: 15px;
         width: 25px;
         height: 25px;
     }
-    
-    
+
+
     body {
         font-size: 10px;
     }
 
-    
+
     .input-display {
         margin-left: 10px;
         margin-right: 10px;
@@ -158,11 +198,3 @@ label {
 {
 	background-color: lightgrey;
 }
-
-
-
-
-
-
-
-
