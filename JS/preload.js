@@ -20,7 +20,7 @@ var zeroOfLinEq;
 //sizing
 var CHART_X_MIN;
 var CHART_X_MAX;
-var CHART_Y_MIN;  
+var CHART_Y_MIN;
 var CHART_Y_MAX;
 
 //outputting
@@ -39,53 +39,70 @@ function setVars(e) {
 
 function preload(){
     reset();
-    
+
     f = document.getElementById("f").value;
     x0 = math.eval(document.getElementById("init").value);
     zeroApproxPoints.push(x0);
     TOLER = math.eval(document.getElementById("TOLER").value);
-    
+
     var table = document.getElementById("output");
+    var header = table.createTHead();
+    var row = header.insertRow();
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+
+    cell1.innerHTML = "<b>n</b>";
+    cell2.innerHTML = "<b>x<sub>n</sub></b>";
+    cell3.innerHTML = "<b>f(x<sub>n</sub>)</b>";
+    cell4.innerHTML = "<b>f'(x<sub>n</sub>)</b>";
+    cell5.innerHTML = "<b>x</b>";
+
     table.insertRow().innerHTML = '<p1>$$x_0 =' + x0 + '$$</p1>';
+
+
+
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
-    
+
     newtonMethod();
-    
+
     var tempArr = [];
     for (var i = 0; i< zeroApproxPoints.length; i++){
         tempArr.push(math.eval(f, scope = {x: zeroApproxPoints[i]}));
     }
-        
-    
+
+
     CHART_Y_MAX = Math.ceil(Math.max.apply(Math, tempArr));
     CHART_Y_MIN = Math.ceil(Math.min.apply(Math, tempArr));
     CHART_X_MIN = Math.ceil(Math.min.apply(Math, zeroApproxPoints));
     CHART_X_MAX = Math.ceil(Math.max.apply(Math, zeroApproxPoints));
-    
+
     if( CHART_X_MAX < 1)
         CHART_X_MAX = 1;
-    
+
     if( CHART_X_MAX > CHART_X_MAX + zeroApprox)
         CHART_X_MAX = CHART_X_MAX - zeroApprox;
-    
+
     if( CHART_X_MIN > -1)
         CHART_X_MIN = -1;
-    
+
     if( CHART_X_MIN < CHART_X_MIN + zeroApprox)
         CHART_X_MIN = CHART_X_MIN - zeroApprox;
-        
+
     if( CHART_Y_MAX < 2)
         CHART_Y_MAX = 2;
-    
+
     if( CHART_Y_MIN > -2)
         CHART_Y_MIN = -2;
-    
-        
+
+
     fpoints = graphFunc(f, CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, fpoints, 0.01);
     approxLinePoints = graphFunc(getEqofTanLine(f, zeroApproxPoints[0], false), CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, approxLinePoints, 0.01);
     makeChart(CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, zeroApprox);
-    
+
     updateMyChart(0);
 }
 
@@ -101,16 +118,16 @@ function reset(){
     var canvasContainer = document.getElementById("chart-container");
     canvasContainer.innerHTML = "<canvas id='newtonChart' width='250px' height='200px'> </canvas>";
     ctx = document.getElementById("newtonChart");
-    
-    
+
+
     var outputTable = document.getElementById('output');
     var rowCount = outputTable.rows.length;
-    while (--rowCount) outputTable.deleteRow(rowCount); 
+    while (--rowCount) outputTable.deleteRow(rowCount);
 
 
     for (var i=0; i<timeouts.length; i++) {
       clearTimeout(timeouts[i]);
     }
-    
+
     timeouts = [];
 }
