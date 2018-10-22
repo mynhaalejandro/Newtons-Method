@@ -63,8 +63,8 @@ function addFinalRow(iter, answer){
     var ans1 = table.insertRow();
 
 
-    ans.innerHTML = '<p1 style:text-align:center;>$$' + "Since f(x)= 0, accept " + latexify(answer.toPrecision(5)) + "as the root" + '$$</p1>';
+    //ans.innerHTML = '<p1>$$' + "Since f(x)= 0, accept root = " + latexify(answer.toPrecision(5)) + '$$</p1>';
     //ans.innerHTML = '<table>$$' + "root=" + latexify(answer.toPrecision(5)) + '$$</table>';
-    //ans1.innerHTML = "Since f(x)=0, accept" + latexify(answer.toPrecision(5)) + "as the root";
+    ans.innerHTML = "<p1>Since f(x) ≈ 0, accept root = " + latexify(answer.toPrecision(5)) + "</p1>";
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 }
