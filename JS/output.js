@@ -60,7 +60,11 @@ function prettyPrintEverything(nEq, zApr, funcX, funcPrimeX, x1, iterCount) {
 function addFinalRow(iter, answer){
     var table = document.getElementById("output");
     var ans = table.insertRow();
+    var ans1 = table.insertRow();
 
-    ans.innerHTML = '<table>$$' + "root=" + latexify(answer.toPrecision(5)) + '$$</table>';
+
+    ans.innerHTML = '<p1 style:text-align:center;>$$' + "Since f(x)= 0, accept " + latexify(answer.toPrecision(5)) + "as the root" + '$$</p1>';
+    //ans.innerHTML = '<table>$$' + "root=" + latexify(answer.toPrecision(5)) + '$$</table>';
+    //ans1.innerHTML = "Since f(x)=0, accept" + latexify(answer.toPrecision(5)) + "as the root";
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 }

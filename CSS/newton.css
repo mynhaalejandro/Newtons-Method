@@ -85,6 +85,12 @@ th {
     color: white;
 }
 
+footer {
+    margin-top: 75%;
+    text-align: center;
+    background-color: #FEE5AC;
+}
+
 @media only screen and (max-width: 1178px) {
     .input-params {
         font-size: 20px;
