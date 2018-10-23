@@ -1,23 +1,3 @@
-// function addHeaderRow(iter){
-//     var table = document.getElementById("output");
-//     var header = table.createTHead();
-//     var row = header.insertRow();
-//     var cell1 = row.insertCell(0);
-//     var cell2 = row.insertCell(1);
-//     var cell3 = row.insertCell(2);
-//     var cell4 = row.insertCell(3);
-//     var cell5 = row.insertCell(4);
-//
-//     cell1.innerHTML = "n";
-//     cell2.innerHTML = "x_n";
-//     cell3.innerHTML = "f(x_n)";
-//     cell4.innerHTML = "f'(x_n)";
-//     cell5.innerHTML = "x";
-//
-//     prettyPrintEverything(cell1, cell2, cell3, cell4, cell5, iter);
-//     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-// }
-
 function addNewRow(iter, zAprox, fX, fPX, initX) {
     var table = document.getElementById("output");
     var newtonEq = table.insertRow();
@@ -40,7 +20,6 @@ function prettyPrintEverything(nEq, zApr, funcX, funcPrimeX, x1, iterCount) {
     funcPrimeX = funcPrimeX.toPrecision(3);
     x1 = x1.toPrecision(3);
 
-    //nEq.innerHTML = '<p1>$$' + "x_{"+ (iterCount) + "}=" +  latexify(x1) + " - (" + latexify(funcX) + ")/(" + latexify(funcPrimeX) + ')=' + latexify(zApr) + '$$</p1>';
     var table = document.getElementById("output");
     var row = table.insertRow();
 
@@ -65,6 +44,6 @@ function addFinalRow(iter, answer){
 
     //ans.innerHTML = '<p1>$$' + "Since f(x)= 0, accept root = " + latexify(answer.toPrecision(5)) + '$$</p1>';
     //ans.innerHTML = '<table>$$' + "root=" + latexify(answer.toPrecision(5)) + '$$</table>';
-    ans.innerHTML = "<p1>Since f(x) ≈ 0, accept root = " + latexify(answer.toPrecision(5)) + "</p1>";
+    ans.innerHTML = "<p1>Since |x<sub>n</sub>-x<sub>n</sub>-1| < " + TOLER + ", accept root = " + latexify(answer.toPrecision(5)) + "</p1>";
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 }

@@ -4,6 +4,7 @@ var TOLER;
 var MAXITS = 50;
 var f;
 var fprime;
+var zeroApprox0;
 var zeroApprox;
 
 //chart general
@@ -58,7 +59,7 @@ function preload(){
     cell2.innerHTML = "<b>x<sub>n</sub></b>";
     cell3.innerHTML = "<b>f(x<sub>n</sub>)</b>";
     cell4.innerHTML = "<b>f'(x<sub>n</sub>)</b>";
-    cell5.innerHTML = "<b>x</b>";
+    cell5.innerHTML = "<b>|x<sub>n</sub>-x<sub>n</sub>-1|</b>";
 
     table.insertRow().innerHTML = '<p1>$$x_0 =' + x0 + '$$</p1>';
 
@@ -83,14 +84,14 @@ function preload(){
     if( CHART_X_MAX < 1)
         CHART_X_MAX = 1;
 
-    if( CHART_X_MAX > CHART_X_MAX + zeroApprox)
-        CHART_X_MAX = CHART_X_MAX - zeroApprox;
+    if( CHART_X_MAX > CHART_X_MAX + zeroApprox0)
+        CHART_X_MAX = CHART_X_MAX - zeroApprox0;
 
     if( CHART_X_MIN > -1)
         CHART_X_MIN = -1;
 
-    if( CHART_X_MIN < CHART_X_MIN + zeroApprox)
-        CHART_X_MIN = CHART_X_MIN - zeroApprox;
+    if( CHART_X_MIN < CHART_X_MIN + zeroApprox0)
+        CHART_X_MIN = CHART_X_MIN - zeroApprox0;
 
     if( CHART_Y_MAX < 2)
         CHART_Y_MAX = 2;
@@ -101,7 +102,7 @@ function preload(){
 
     fpoints = graphFunc(f, CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, fpoints, 0.01);
     approxLinePoints = graphFunc(getEqofTanLine(f, zeroApproxPoints[0], false), CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, approxLinePoints, 0.01);
-    makeChart(CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, zeroApprox);
+    makeChart(CHART_X_MIN, CHART_X_MAX, CHART_Y_MIN, CHART_Y_MAX, zeroApprox0);
 
     updateMyChart(0);
 }
