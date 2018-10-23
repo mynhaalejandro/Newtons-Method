@@ -7,7 +7,20 @@ a {
     text-decoration: none;
 }
 
+header {
+    background-color: #666;
+    padding: 5px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+header i{
+    font-size: 15px;
+}
+
 .input-params{
+    padding-top: 30%;
     top: 5%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -15,11 +28,11 @@ a {
     position: absolute;
     width: 100%;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .content-container {
-  top: 5%;
+  top: 12%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -86,9 +99,11 @@ th {
 }
 
 footer {
-    margin-top: 100%;
+    background-color: #777;
+    padding: 10px;
     text-align: center;
-    background-color: #FEE5AC;
+    color: white;
+    margin-top: 80%;
 }
 
 @media only screen and (max-width: 1178px) {
